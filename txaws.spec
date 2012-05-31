@@ -16,6 +16,7 @@ BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildRequires:  python python-devel
 Requires:       python-dateutil
 Requires:       python-twisted
+Requires:       ca-certificates
 
 %description
 Twisted-based Asynchronous Libraries for Amazon Web Services and Eucalyptus
