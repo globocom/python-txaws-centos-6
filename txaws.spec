@@ -54,5 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Thu May 31 2012 Francisco Souza <f@souza.cc> - 0.2.3
+* Mon Jun 04 2012 Francisco Souza <f@souza.cc> - 0.2.3-2
+- Fix issue 1, parsing EC2's terminate instance XML (aparently, an issue only
+  with OpenStack)
+* Thu May 31 2012 Francisco Souza <f@souza.cc> - 0.2.3-1
 - Initial packaging
