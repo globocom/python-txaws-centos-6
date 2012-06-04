@@ -2,13 +2,16 @@
 
 Name:           python-txaws
 Version:        0.2.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Async library for EC2, OpenStack, and Eucalyptus
 
 Group:          Applications/Internet
 License:        MIT License
 URL:            https://launchpad.net/txaws
 Source0:        http://pypi.python.org/packages/source/t/txAWS/txAWS-%{version}.tar.gz
+
+# https://github.com/timeredbull/python-txaws-centos-6/issues/1
+Patch0:         python_txaws_0.2.3_current_state.patch
 
 BuildArch:      noarch
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
@@ -26,6 +29,7 @@ Eucalyptus clouds.
 
 %prep
 %setup -q -n txAWS-%{version}
+%patch0 -p0
 
 
 %build

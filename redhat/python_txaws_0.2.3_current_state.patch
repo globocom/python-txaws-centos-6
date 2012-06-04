@@ -1,0 +1,21 @@
+diff -ru txaws.orig/ec2/client.py txaws/ec2/client.py
+--- txaws/ec2/client.py	2012-06-04 08:51:38.377946838 -0300
++++ txaws/ec2/client.py	2012-06-04 08:53:25.652737476 -0300
+@@ -653,11 +653,12 @@
+         if instances is not None:
+             for instance in instances:
+                 instanceId = instance.findtext("instanceId")
+-                previousState = instance.find("previousState").findtext(
+-                    "name")
+-                currentState = instance.find("currentState").findtext(
+-                    "name")
+-                result.append((instanceId, previousState, currentState))
++                previousState = instance.find("previousState")
++                currentState = instance.find("currentState")
++                if currentState and previousState:
++                    previousState = previousState.findtext("name")
++                    currentState = currentState.findtext("name")
++                    result.append((instanceId, previousState, currentState))
+         return result
+ 
+     def describe_security_groups(self, xml_bytes):
